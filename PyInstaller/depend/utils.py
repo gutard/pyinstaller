@@ -208,7 +208,8 @@ def scan_code_for_ctypes(co, instrs, i):
         op, oparg, conditional, curline = instrs[i]
         if op == LOAD_CONST:
             soname = co.co_consts[oparg]
-            b.append(soname)
+            if soname:
+                b.append(soname)
 
     b = []
 
